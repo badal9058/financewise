@@ -48,6 +48,7 @@
         .about-content { display: flex; gap: 40px; align-items: center; }
         .services-grid, .why-choose-us-grid, .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .service-card, .approach-step, .feature-card { background: var(--dark-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card { cursor: pointer; }
         .service-card:hover, .approach-step:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 176, 255, 0.2); }
         .service-card i, .approach-step i, .feature-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
         .service-card h3, .approach-step h3, .feature-card h3 { color: var(--primary-color); font-size: 1.4rem; }
@@ -75,53 +76,34 @@
         .modal-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border: 1px solid #888; width: 80%; max-width: 800px; border-radius: 10px; position: relative; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
         .close-btn { color: #aaa; position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .modal-content h2 { color: var(--primary-color); }
-
-        /* --- RESPONSIVE FIXES --- */
+        .modal-content h2, .modal-content h3 { color: var(--primary-color); text-align: left; }
+        .modal-content p, .modal-content ul { text-align: left; margin-bottom: 15px;}
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 20px; }
+        .pricing-card { background: var(--dark-bg); padding: 20px 15px; border-radius: 8px; text-align: center; border: 1px solid var(--secondary-color); }
+        .pricing-card h4 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; }
+        .pricing-card p { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
+        .btn-small { padding: 8px 15px; font-size: 0.9rem; }
         @media(max-width: 768px) {
             .navbar, .about-content { flex-direction: column; }
             .nav-links { margin-top: 15px; }
             .hero-content h1 { font-size: 2.5rem; }
-            .contact-grid, .services-grid, .why-choose-us-grid, .approach-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+            .contact-grid, .services-grid, .why-choose-us-grid, .approach-grid, .testimonials-grid { grid-template-columns: 1fr; }
             .modal-content { width: 95%; margin-top: 15%; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <nav class="navbar container">
-            <a href="#" class="logo"><img src="logo.png" alt="Logo"><span>FinanceWise Advisors</span></a>
-            <ul class="nav-links">
-                <li><a href="#hero" class="active">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header class="header"><nav class="navbar container"><a href="#" class="logo"><img src="logo.png" alt="Logo"><span>FinanceWise Advisors</span></a><ul class="nav-links"><li><a href="#hero" class="active">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
     <section id="hero" class="hero"><div class="hero-content"><h1>Grow Your Wealth with <span>Expert Guidance</span></h1><p>Your trusted partner for smart and strategic stock market investments.</p><a href="#contact" class="btn">Get a Free Consultation</a></div></section>
     <section id="about" class="container"><div class="about-content"><div class="about-text"><h2 class="section-title" style="text-align:left;">About Finance Wise Advisors</h2><p>Finance Wise Advisors is a premier financial advisory firm based in Kishangarh, Ajmer. Founded by <strong>Ashutosh Kabra</strong>, a SEBI registered research analyst, our mission is to empower investors with the knowledge and strategies needed to navigate the complexities of the stock market. We believe in building long-term relationships based on trust, transparency, and data-driven results.</p></div></div></section>
-    <section id="services"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><i class="fas fa-chart-pie"></i><h3>Index Option</h3><p>Strategic guidance for trading in Nifty & Bank Nifty options.</p></div><div class="service-card"><i class="fas fa-tasks"></i><h3>Stock Option</h3><p>Expert analysis and calls for options of individual stocks.</p></div><div class="service-card"><i class="fas fa-file-contract"></i><h3>Stock Futures</h3><p>Well-researched strategies for trading in the stock futures segment.</p></div><div class="service-card"><i class="fas fa-wave-square"></i><h3>Swing Trading</h3><p>Short to medium-term trading ideas to capture market swings.</p></div></div></div></section>
+    <section id="services"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card modal-link" data-modal="indexOption"><i class="fas fa-chart-pie"></i><h3>Index Option</h3><p>Strategic guidance for trading in Nifty & Bank Nifty options.</p></div><div class="service-card modal-link" data-modal="stockOption"><i class="fas fa-tasks"></i><h3>Stock Option</h3><p>Expert analysis and calls for options of individual stocks.</p></div><div class="service-card modal-link" data-modal="stockFutures"><i class="fas fa-file-contract"></i><h3>Stock Futures</h3><p>Well-researched strategies for trading in the stock futures segment.</p></div><div class="service-card modal-link" data-modal="swingTrading"><i class="fas fa-wave-square"></i><h3>Swing Trading</h3><p>Short to medium-term trading ideas to capture market swings.</p></div></div></div></section>
     <section id="our-approach"><div class="container"><h2 class="section-title">Our Approach</h2><div class="approach-grid"><div class="approach-step"><i class="fas fa-user-check"></i><h3>1. Risk Profiling</h3><p>We start by understanding your financial goals and risk tolerance.</p></div><div class="approach-step"><i class="fas fa-bullseye"></i><h3>2. Strategy Building</h3><p>Based on your profile, we create a personalized investment strategy.</p></div><div class="approach-step"><i class="fas fa-lightbulb"></i><h3>3. Recommendation</h3><p>You receive clear, actionable recommendations with defined logic.</p></div><div class="approach-step"><i class="fas fa-sync-alt"></i><h3>4. Regular Review</h3><p>We constantly monitor the portfolio and make adjustments as needed.</p></div></div></div></section>
     <section id="why-choose-us" style="background-color: var(--dark-bg);"><div class="container"><h2 class="section-title">Why Choose Us?</h2><div class="why-choose-us-grid"><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-check-circle"></i><h3>SEBI Registered</h3><p>A compliant and trustworthy firm for your peace of mind.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-user-tie"></i><h3>Expert Guidance</h3><p>Benefit from in-depth market knowledge and expertise.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-cogs"></i><h3>Personalized Strategy</h3><p>Investment strategies tailored to your unique financial goals.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-chart-bar"></i><h3>Data-Driven Approach</h3><p>Recommendations backed by thorough research and analysis.</p></div></div></div></section>
     <section id="testimonials" class="container"><h2 class="section-title">What Our Clients Say</h2><div class="testimonials-grid"><div class="testimonial-card"><p>"Finance Wise Advisors changed my perspective on investing. Their guidance is clear and effective. My portfolio has never looked better!"</p><h4>- Rohan S., Mumbai</h4></div><div class="testimonial-card"><p>"As a beginner, the stock market seemed intimidating. But Ashutosh Kabra explained everything patiently. Highly recommended!"</p><h4>- Priya M., Jaipur</h4></div><div class="testimonial-card"><p>"The professionalism and transparency are top-notch. I appreciate their data-driven approach, which gives me confidence in my investments."</p><h4>- Ankit G., Delhi</h4></div></div></section>
     <section id="faq"><div class="container"><h2 class="section-title">Frequently Asked Questions</h2><div class="faq-item"><div class="faq-question">Are your services suitable for beginners? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Yes, absolutely. We guide our clients at every step, from understanding the basics to executing trades. Our recommendations are designed to be easy to understand and follow.</p></div></div><div class="faq-item"><div class="faq-question">How do I receive the recommendations? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>All recommendations are provided through our private Telegram channel and WhatsApp for instant delivery, ensuring you never miss an opportunity.</p></div></div><div class="faq-item"><div class="faq-question">What is the minimum capital required? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>We have different service plans suitable for various capital sizes. We recommend starting with a capital you are comfortable with. Please contact us for a personalized discussion.</p></div></div></div></section>
     <section class="container"><div class="cta-section"><h2>Ready to Start Your Financial Journey?</h2><p style="color:white; margin:15px 0;">Let's work together to achieve your financial goals. Get in touch with us for a no-obligation consultation.</p><a href="#contact" class="btn" style="background:white; color:black;">Contact Us Now</a></div></section>
-    
-    <section id="contact" class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Contact Details</h3>
-                <p><i class="fas fa-user"></i> <strong>Contact:</strong> Ashutosh Kabra</p><p><i class="fas fa-phone"></i> <strong>Telephone:</strong> +91 919413592811</p><p><i class="fas fa-envelope"></i> <strong>Email:</strong> ashurj.maheshwari@gmail.com</p><p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801</p><p><i class="fas fa-id-card"></i> <strong>SEBI Registration:</strong> INH000015349</p>
-            </div>
-            <div class="contact-form">
-                <h3>Send us a Message</h3>
-                <form action="#" method="POST"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="text" name="subject" placeholder="Subject" required><textarea name="message" rows="5" placeholder="Your Message" required></textarea><button type="submit" class="btn">Send Message</button></form>
-            </div>
-        </div>
-    </section>
+    <section id="contact" class="container"><div class="contact-grid"><div class="contact-info"><h3>Contact Details</h3><p><i class="fas fa-user"></i> <strong>Contact:</strong> Ashutosh Kabra</p><p><i class="fas fa-phone"></i> <strong>Telephone:</strong> +91 919413592811</p><p><i class="fas fa-envelope"></i> <strong>Email:</strong> ashurj.maheshwari@gmail.com</p><p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801</p><p><i class="fas fa-id-card"></i> <strong>SEBI Registration:</strong> INH000015349</p></div><div class="contact-form"><h3>Send us a Message</h3><form action="#" method="POST"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="text" name="subject" placeholder="Subject" required><textarea name="message" rows="5" placeholder="Your Message" required></textarea><button type="submit" class="btn">Send Message</button></form></div></div></section>
     
     <footer class="footer"><div class="container"><div class="social-links"><a href="https://www.facebook.com/profile.php?id=61579016798799" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/financewise__" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@financewiseadvisors" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a><a href="https://t.me/+8uqcKmSy0ecyY2I1" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></div><div class="footer-links"><a class="modal-link" data-modal="terms">Terms & Conditions</a>|<a class="modal-link" data-modal="privacy">Privacy Policy</a>|<a class="modal-link" data-modal="refund">Refund Policy</a>|<a class="modal-link" data-modal="disclosure">Disclosure</a>|<a class="modal-link" data-modal="grievance">Grievance Redressal</a>|<a class="modal-link" data-modal="charter">Investor Charter</a></div><p class="sebi-info">SEBI Registered Research Analyst: Ashutosh Kabra (INH000015349)</p><p>&copy; 2025 Finance Wise Advisors. All Rights Reserved.</p></div></footer>
 
@@ -132,6 +114,12 @@
     <div id="disclosureModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Disclosure & Disclaimer</h2><p><strong>Finance Wise Advisors is a proprietorship firm owned by Mr. Ashutosh Kabra, a SEBI Registered Research Analyst with Registration No. INH000015349.</strong></p><ul><li>Investment in securities market is subject to market risks. Read all related documents carefully before investing. There is no assurance or guarantee of returns.</li><li>We do not have any financial interest or beneficial ownership of 1% or more in the subject company's securities.</li><li>We do not have any other material conflict of interest at the time of publication of research reports.</li></ul></div></div>
     <div id="grievanceModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Grievance Redressal</h2><p>You can send your complaints to our compliance officer at <strong>ashurj.maheshwari@gmail.com</strong>. If you are not satisfied, you can file a complaint with SEBI on the SCORES platform at <a href="https://scores.sebi.gov.in" target="_blank" style="color:var(--primary-color);">scores.sebi.gov.in</a>.</p></div></div>
     <div id="charterModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Investor Charter</h2><h3>Vision & Mission</h3><p><strong>Vision:</strong> To help investors invest with knowledge and safety. <strong>Mission:</strong> To ensure every investor can invest in the right products based on their needs and goals.</p></div></div>
+    
+    <!-- Service Modals -->
+    <div id="indexOptionModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Index Option Service</h2><p>This service focuses on Nifty & Bank Nifty options, using technical analysis to identify high-probability trades. Ideal for traders looking to capitalize on market volatility with defined risk.</p><h3>Pricing Plans</h3><div class="pricing-grid"><div class="pricing-card"><h4>1 Month</h4><p>₹1999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>2 Months</h4><p>₹2999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>4 Months</h4><p>₹3999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>6 Months</h4><p>₹5999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>1 Year</h4><p>₹8999</p><a href="#contact" class="btn btn-small">Subscribe</a></div></div></div></div>
+    <div id="stockOptionModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Stock Option Service</h2><p>This service provides recommendations for options of individual stocks with high momentum. Our team performs deep analysis to select the best opportunities for profiting from both rising and falling markets.</p><h3>Pricing Plans</h3><div class="pricing-grid"><div class="pricing-card"><h4>1 Month</h4><p>₹1999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>2 Months</h4><p>₹2999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>4 Months</h4><p>₹3999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>6 Months</h4><p>₹5999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>1 Year</h4><p>₹8999</p><a href="#contact" class="btn btn-small">Subscribe</a></div></div></div></div>
+    <div id="stockFuturesModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Stock Futures Service</h2><p>Designed for experienced traders, this service provides well-researched calls in the stock futures segment. We focus on risk management and provide both long and short calls for holding periods of a few days to weeks.</p><h3>Pricing Plans</h3><div class="pricing-grid"><div class="pricing-card"><h4>1 Month</h4><p>₹1999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>2 Months</h4><p>₹2999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>4Months</h4><p>₹3999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>6 Months</h4><p>₹5999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>1 Year</h4><p>₹8999</p><a href="#contact" class="btn btn-small">Subscribe</a></div></div></div></div>
+    <div id="swingTradingModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Swing Trading Service</h2><p>Perfect for those who want to capture short to medium-term gains (5-15%) in the cash market. We identify stocks at key breakout or reversal points for a holding period of 1 to 4 weeks.</p><h3>Pricing Plans</h3><div class="pricing-grid"><div class="pricing-card"><h4>1 Month</h4><p>₹1999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>2 Months</h4><p>₹2999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>4 Months</h4><p>₹3999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>6 Months</h4><p>₹5999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h4>1 Year</h4><p>₹8999</p><a href="#contact" class="btn btn-small">Subscribe</a></div></div></div></div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
@@ -139,19 +127,8 @@
         document.querySelectorAll('.modal-link').forEach(e=>{e.addEventListener('click',()=>{document.getElementById(e.getAttribute('data-modal')+'Modal').style.display='block'})});
         document.querySelectorAll('.close-btn').forEach(e=>{e.addEventListener('click',()=>{e.closest('.modal').style.display='none'})});
         window.addEventListener('click',e=>{document.querySelectorAll('.modal').forEach(t=>{e.target==t&&(t.style.display='none')})});
-        
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', event => {
-                const faqItem = item.parentElement;
-                const answer = item.nextElementSibling;
-                const wasActive = faqItem.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('active'); i.querySelector('.faq-answer').style.maxHeight = null; });
-                if (!wasActive) {
-                    faqItem.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                }
-            });
-        });
+        document.querySelectorAll('.faq-question').forEach(item=>{item.addEventListener('click',event=>{const faqItem=item.parentElement,answer=item.nextElementSibling,wasActive=faqItem.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('active');i.querySelector('.faq-answer').style.maxHeight=null});if(!wasActive){faqItem.classList.add('active');answer.style.maxHeight=answer.scrollHeight+"px";}});});
+        document.querySelectorAll('.pricing-card .btn').forEach(button=>{button.addEventListener('click',()=>{button.closest('.modal').style.display='none'})});
     </script>
 </body>
 </html>
