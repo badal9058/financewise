@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Finance Wise Advisors - Your Partner in Financial Growth</title>
+    <meta name="description" content="Finance Wise Advisors (SEBI Registered: INH000015349) offers expert stock market advisory. We provide services like Index Options, Stock Options, and Swing Trading with full transparency and compliance.">
+    <meta name="keywords" content="Stock Market Advisory, SEBI Registered, Ashutosh Kabra, Financial Advisors, Investment Advice, Privacy Policy, Terms and Conditions, Refund Policy, Disclosure, Kishangarh, Ajmer">
+    <meta name="author" content="Finance Wise Advisors">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #00b0ff; --secondary-color: #4caf50; --dark-bg: #1a1a1a;
+            --text-color: #e0e0e0; --light-dark-bg: #222;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); line-height: 1.6; }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+        h1, h2, h3 { font-weight: 600; margin-bottom: 20px; }
+        section { padding: 80px 0; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .header { background: rgba(26, 26, 26, 0.9); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: white; display: flex; align-items: center; text-decoration: none; }
+        .logo img { width: 50px; margin-right: 15px; }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 400; position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--primary-color); left: 0; bottom: -5px; transition: width 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after { width: 100%; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: white; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-content h1 span { color: var(--secondary-color); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: transform 0.3s ease, background 0.3s ease; border: none; cursor: pointer; }
+        .btn:hover { background: var(--secondary-color); transform: translateY(-3px); }
+        #about, #contact, #testimonials, #faq { background: var(--dark-bg); }
+        #services, #why-choose-us, #our-approach { background: var(--light-dark-bg); }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--primary-color); }
+        .about-content { display: flex; gap: 40px; align-items: center; }
+        .services-grid, .why-choose-us-grid, .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .service-card, .approach-step, .feature-card { background: var(--dark-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover, .approach-step:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 176, 255, 0.2); }
+        .service-card i, .approach-step i, .feature-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
+        .service-card h3, .approach-step h3, .feature-card h3 { color: var(--primary-color); font-size: 1.4rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: #2a2a2a; padding: 25px; border-left: 5px solid var(--primary-color); border-radius: 5px; }
+        .faq-item { background: var(--light-dark-bg); margin-bottom: 10px; border-radius: 5px; }
+        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+        .faq-question i { transition: transform 0.3s ease; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .cta-section { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); padding: 60px 20px; text-align: center; border-radius: 10px; margin: 0 auto; }
+        .cta-section h2 { color: white; }
+        /* UPDATED Contact Section Styling */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start; }
+        .contact-info p { margin-bottom: 20px; display: flex; align-items: center; font-size: 1rem; }
+        .contact-info i { color: var(--primary-color); margin-right: 15px; font-size: 1.2rem; width: 20px; text-align: center; }
+        .contact-form h3, .contact-info h3 { text-align: left; }
+        .contact-form form { display: flex; flex-direction: column; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 2px solid #555; background: #333; color: var(--text-color); font-family: 'Poppins', sans-serif; transition: border-color 0.3s ease; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-color); outline: none; }
+        .footer { background: #111; color: #aaa; text-align: center; padding: 40px 0; }
+        .footer .social-links a { color: #aaa; margin: 0 15px; font-size: 1.5rem; text-decoration: none; transition: color 0.3s ease; }
+        .footer .footer-links { margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; }
+        .footer .footer-links a { color: #ccc; text-decoration: none; cursor: pointer; }
+        .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
+        .modal-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border: 1px solid #888; width: 80%; max-width: 800px; border-radius: 10px; position: relative; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        .close-btn { color: #aaa; position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .modal-content h2 { color: var(--primary-color); }
+        @media(max-width: 768px) {
+            .navbar, .about-content, .contact-grid { flex-direction: column; grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo"><img src="logo.png" alt="Logo"><span>FinanceWise Advisors</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero"><div class="hero-content"><h1>Grow Your Wealth with <span>Expert Guidance</span></h1><p>Your trusted partner for smart and strategic stock market investments.</p><a href="#contact" class="btn">Get a Free Consultation</a></div></section>
+    <section id="about" class="container"><div class="about-content"><div class="about-text"><h2 class="section-title" style="text-align:left;">About Finance Wise Advisors</h2><p>Finance Wise Advisors is a premier financial advisory firm based in Kishangarh, Ajmer. Founded by <strong>Ashutosh Kabra</strong>, a SEBI registered research analyst, our mission is to empower investors with the knowledge and strategies needed to navigate the complexities of the stock market. We believe in building long-term relationships based on trust, transparency, and data-driven results.</p></div></div></section>
+    <section id="services"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><i class="fas fa-chart-pie"></i><h3>Index Option</h3><p>Strategic guidance for trading in Nifty & Bank Nifty options.</p></div><div class="service-card"><i class="fas fa-tasks"></i><h3>Stock Option</h3><p>Expert analysis and calls for options of individual stocks.</p></div><div class="service-card"><i class="fas fa-file-contract"></i><h3>Stock Futures</h3><p>Well-researched strategies for trading in the stock futures segment.</p></div><div class="service-card"><i class="fas fa-wave-square"></i><h3>Swing Trading</h3><p>Short to medium-term trading ideas to capture market swings.</p></div></div></div></section>
+    <section id="our-approach"><div class="container"><h2 class="section-title">Our Approach</h2><div class="approach-grid"><div class="approach-step"><i class="fas fa-user-check"></i><h3>1. Risk Profiling</h3><p>We start by understanding your financial goals and risk tolerance.</p></div><div class="approach-step"><i class="fas fa-bullseye"></i><h3>2. Strategy Building</h3><p>Based on your profile, we create a personalized investment strategy.</p></div><div class="approach-step"><i class="fas fa-lightbulb"></i><h3>3. Recommendation</h3><p>You receive clear, actionable recommendations with defined logic.</p></div><div class="approach-step"><i class="fas fa-sync-alt"></i><h3>4. Regular Review</h3><p>We constantly monitor the portfolio and make adjustments as needed.</p></div></div></div></section>
+    <section id="why-choose-us" style="background-color: var(--dark-bg);"><div class="container"><h2 class="section-title">Why Choose Us?</h2><div class="why-choose-us-grid"><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-check-circle"></i><h3>SEBI Registered</h3><p>A compliant and trustworthy firm for your peace of mind.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-user-tie"></i><h3>Expert Guidance</h3><p>Benefit from in-depth market knowledge and expertise.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-cogs"></i><h3>Personalized Strategy</h3><p>Investment strategies tailored to your unique financial goals.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-chart-bar"></i><h3>Data-Driven Approach</h3><p>Recommendations backed by thorough research and analysis.</p></div></div></div></section>
+    <section id="testimonials" class="container"><h2 class="section-title">What Our Clients Say</h2><div class="testimonials-grid"><div class="testimonial-card"><p>"Finance Wise Advisors changed my perspective on investing. Their guidance is clear and effective. My portfolio has never looked better!"</p><h4>- Rohan S., Mumbai</h4></div><div class="testimonial-card"><p>"As a beginner, the stock market seemed intimidating. But Ashutosh Kabra explained everything patiently. Highly recommended!"</p><h4>- Priya M., Jaipur</h4></div><div class="testimonial-card"><p>"The professionalism and transparency are top-notch. I appreciate their data-driven approach, which gives me confidence in my investments."</p><h4>- Ankit G., Delhi</h4></div></div></section>
+    <section id="faq"><div class="container"><h2 class="section-title">Frequently Asked Questions</h2><div class="faq-item"><div class="faq-question">Are your services suitable for beginners? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Yes, absolutely. We guide our clients at every step, from understanding the basics to executing trades. Our recommendations are designed to be easy to understand and follow.</p></div></div><div class="faq-item"><div class="faq-question">How do I receive the recommendations? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>All recommendations are provided through our private Telegram channel and WhatsApp for instant delivery, ensuring you never miss an opportunity.</p></div></div><div class="faq-item"><div class="faq-question">What is the minimum capital required? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>We have different service plans suitable for various capital sizes. We recommend starting with a capital you are comfortable with. Please contact us for a personalized discussion.</p></div></div></div></section>
+    <section class="container"><div class="cta-section"><h2>Ready to Start Your Financial Journey?</h2><p style="color:white; margin:15px 0;">Let's work together to achieve your financial goals. Get in touch with us for a no-obligation consultation.</p><a href="#contact" class="btn" style="background:white; color:black;">Contact Us Now</a></div></section>
+    
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-user"></i> <strong>Contact:</strong> Ashutosh Kabra</p><p><i class="fas fa-phone"></i> <strong>Telephone:</strong> +91 919413592811</p><p><i class="fas fa-envelope"></i> <strong>Email:</strong> ashurj.maheshwari@gmail.com</p><p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801</p><p><i class="fas fa-id-card"></i> <strong>SEBI Registration:</strong> INH000015349</p>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form action="#" method="POST"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="text" name="subject" placeholder="Subject" required><textarea name="message" rows="5" placeholder="Your Message" required></textarea><button type="submit" class="btn">Send Message</button></form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer"><div class="container"><div class="social-links"><a href="https://www.facebook.com/profile.php?id=61579016798799" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/financewise__" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@financewiseadvisors" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a><a href="https://t.me/+8uqcKmSy0ecyY2I1" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></div><div class="footer-links"><a class="modal-link" data-modal="terms">Terms & Conditions</a>|<a class="modal-link" data-modal="privacy">Privacy Policy</a>|<a class="modal-link" data-modal="refund">Refund Policy</a>|<a class="modal-link" data-modal="disclosure">Disclosure</a>|<a class="modal-link" data-modal="grievance">Grievance Redressal</a>|<a class="modal-link" data-modal="charter">Investor Charter</a></div><p class="sebi-info">SEBI Registered Research Analyst: Ashutosh Kabra (INH000015349)</p><p>&copy; 2025 Finance Wise Advisors. All Rights Reserved.</p></div></footer>
+
+    <!-- All Modals Here -->
+    <div id="termsModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Terms and Conditions</h2><p>Welcome to Finance Wise Advisors. By using our services, you agree to these terms. The information is for educational purposes only. We are not liable for any losses. All content is our intellectual property.</p></div></div>
+    <div id="privacyModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Privacy Policy</h2><p>We are committed to protecting your privacy. We collect personal information only when you voluntarily provide it. This information is used solely to respond to your inquiries. We do not sell or share your data.</p></div></div>
+    <div id="refundModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Refund Policy</h2><p>All fees for our advisory services are strictly non-refundable. Since our services are knowledge-based and delivered upon payment, we cannot issue refunds. There are no cancellations or refunds under any circumstances.</p></div></div>
+    <div id="disclosureModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Disclosure & Disclaimer</h2><p><strong>Finance Wise Advisors is a proprietorship firm owned by Mr. Ashutosh Kabra, a SEBI Registered Research Analyst with Registration No. INH000015349.</strong></p><ul><li>Investment in securities market is subject to market risks. Read all related documents carefully before investing. There is no assurance or guarantee of returns.</li><li>We do not have any financial interest or beneficial ownership of 1% or more in the subject company's securities.</li><li>We do not have any other material conflict of interest at the time of publication of research reports.</li></ul></div></div>
+    <div id="grievanceModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Grievance Redressal</h2><p>You can send your complaints to our compliance officer at <strong>ashurj.maheshwari@gmail.com</strong>. If you are not satisfied, you can file a complaint with SEBI on the SCORES platform at <a href="https://scores.sebi.gov.in" target="_blank" style="color:var(--primary-color);">scores.sebi.gov.in</a>.</p></div></div>
+    <div id="charterModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Investor Charter</h2><h3>Vision & Mission</h3><p><strong>Vision:</strong> To help investors invest with knowledge and safety. <strong>Mission:</strong> To ensure every investor can invest in the right products based on their needs and goals.</p></div></div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+        const sections=document.querySelectorAll('section'),observer=new IntersectionObserver((e,t)=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('visible'),t.unobserve(e.target))})},{threshold:.1});sections.forEach(e=>observer.observe(e));
+        document.querySelectorAll('.modal-link').forEach(e=>{e.addEventListener('click',()=>{document.getElementById(e.getAttribute('data-modal')+'Modal').style.display='block'})});
+        document.querySelectorAll('.close-btn').forEach(e=>{e.addEventListener('click',()=>{e.closest('.modal').style.display='none'})});
+        window.addEventListener('click',e=>{document.querySelectorAll('.modal').forEach(t=>{e.target==t&&(t.style.display='none')})});
+        
+        // FIXED FAQ Script
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const faqItem = item.parentElement;
+                const answer = item.nextElementSibling;
+                const isOpen = faqItem.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Open the clicked one if it was closed
+                if (!isOpen) {
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
