@@ -19,72 +19,204 @@
             --primary-color: #00b0ff; --secondary-color: #4caf50; --dark-bg: #1a1a1a;
             --text-color: #e0e0e0; --light-dark-bg: #222;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); line-height: 1.6; }
-        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
-        h1, h2, h3, h4 { font-weight: 600; margin-bottom: 20px; }
-        section { padding: 80px 0; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        section.visible { opacity: 1; transform: translateY(0); }
-        .header { background: rgba(26, 26, 26, 0.9); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
-        .navbar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.8rem; font-weight: 700; color: white; display: flex; align-items: center; text-decoration: none; }
-        .logo img { width: 50px; margin-right: 15px; }
-        .nav-links { list-style: none; display: flex; }
-        .nav-links li { margin-left: 30px; }
-        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 400; position: relative; transition: color 0.3s ease; }
-        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--primary-color); left: 0; bottom: -5px; transition: width 0.3s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
-        .nav-links a:hover::after { width: 100%; }
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: white; }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero-content h1 span { color: var(--secondary-color); }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
-        .btn { display: inline-block; padding: 12px 25px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: transform 0.3s ease, background 0.3s ease; border: none; cursor: pointer; }
-        .btn:hover { background: var(--secondary-color); transform: translateY(-3px); }
-        #about, #contact, #testimonials, #faq { background: var(--dark-bg); }
-        #services, #why-choose-us, #our-approach { background: var(--light-dark-bg); }
-        .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--primary-color); }
-        .about-content { display: flex; gap: 40px; align-items: center; }
-        .services-grid, .why-choose-us-grid, .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card, .approach-step, .feature-card { background: var(--dark-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .service-card { cursor: pointer; }
-        .service-card:hover, .approach-step:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 176, 255, 0.2); }
-        .service-card i, .approach-step i, .feature-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
-        .service-card h3, .approach-step h3, .feature-card h3 { color: var(--primary-color); font-size: 1.4rem; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .testimonial-card { background: #2a2a2a; padding: 25px; border-left: 5px solid var(--primary-color); border-radius: 5px; }
-        .faq-item { background: var(--light-dark-bg); margin-bottom: 10px; border-radius: 5px; }
-        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-        .faq-question i { transition: transform 0.3s ease; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
-        .cta-section { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); padding: 60px 20px; text-align: center; border-radius: 10px; margin: 0 auto; }
-        .cta-section h2 { color: white; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start; }
-        .contact-info p { margin-bottom: 20px; display: flex; align-items: center; font-size: 1rem; }
-        .contact-info i { color: var(--primary-color); margin-right: 15px; font-size: 1.2rem; width: 20px; text-align: center; }
-        .contact-form h3, .contact-info h3 { text-align: left; }
-        .contact-form form { display: flex; flex-direction: column; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 2px solid #555; background: #333; color: var(--text-color); font-family: 'Poppins', sans-serif; transition: border-color 0.3s ease; }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-color); outline: none; }
-        .footer { background: #111; color: #aaa; text-align: center; padding: 40px 0; }
-        .footer .social-links a { color: #aaa; margin: 0 15px; font-size: 1.5rem; text-decoration: none; transition: color 0.3s ease; }
-        .footer .footer-links { margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; }
-        .footer .footer-links a { color: #ccc; text-decoration: none; cursor: pointer; }
-        .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-        .modal-content { background-color: #2a2a2a; margin: 5% auto; padding: 30px; border: 1px solid #888; width: 80%; max-width: 800px; border-radius: 10px; position: relative; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-        .close-btn { color: #aaa; position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .modal-content h2, .modal-content h3 { color: var(--primary-color); text-align: left; }
-        .modal-content h4 { color: var(--secondary-color); margin-top: 20px; }
-        .modal-content p, .modal-content ul { text-align: left; margin-bottom: 15px;}
-        .modal-content ul { list-style-position: inside; padding-left: 20px;}
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 20px; }
-        .pricing-card { background: var(--dark-bg); padding: 20px 15px; border-radius: 8px; text-align: center; border: 1px solid var(--secondary-color); }
-        .pricing-card h5 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; }
-        .pricing-card p { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
-        .btn-small { padding: 8px 15px; font-size: 0.9rem; }
+        * {
+             margin: 0; padding: 0; box-sizing: border-box; 
+        }
+        html { 
+            scroll-behavior: smooth; 
+        }
+        body { 
+            font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-color); line-height: 1.6; 
+        }
+        .container { 
+            max-width: 1200px; margin: auto; padding: 0 20px; 
+        }
+        h1, h2, h3, h4 { 
+            font-weight: 600; margin-bottom: 20px; 
+        }
+        section { 
+            padding: 80px 0; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; 
+        }
+        section.visible { 
+            opacity: 1; transform: translateY(0); 
+        }
+        .header { 
+            background: rgba(26, 26, 26, 0.9); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+        }
+        .navbar { 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        .logo { 
+            font-size: 1.8rem; font-weight: 700; color: white; display: flex; align-items: center; text-decoration: none; 
+        }
+        .logo img { 
+            width: 50px; margin-right: 15px; 
+        }
+        .nav-links { 
+            list-style: none; display: flex; 
+        }
+        .nav-links li { 
+            margin-left: 30px; 
+        }
+        .nav-links a { 
+            color: var(--text-color); text-decoration: none; font-weight: 400; position: relative; transition: color 0.3s ease; 
+        }
+        .nav-links a::after { 
+            content: ''; position: absolute; width: 0; height: 2px; background: var(--primary-color); left: 0; bottom: -5px; transition: width 0.3s ease; 
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-color); 
+        }
+        .nav-links a:hover::after { 
+            width: 100%; 
+        }
+        .hero { 
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; color: white; 
+        }
+        .hero-content h1 { 
+            font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        .hero-content h1 span { 
+            color: var(--secondary-color); 
+        }
+        .hero-content p { 
+            font-size: 1.2rem; margin-bottom: 30px; 
+        }
+        .btn { 
+            display: inline-block; padding: 12px 25px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: transform 0.3s ease, background 0.3s ease; border: none; cursor: pointer; 
+        }
+        .btn:hover { 
+            background: var(--secondary-color); transform: translateY(-3px); 
+        }
+        #about, #contact, #testimonials, #faq { 
+            background: var(--dark-bg); 
+        }
+        #services, #why-choose-us, #our-approach { 
+            background: var(--light-dark-bg); 
+        }
+        .section-title { 
+            text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: var(--primary-color); 
+        }
+        .about-content { 
+            display: flex; gap: 40px; align-items: center; 
+        }
+        .services-grid, .why-choose-us-grid, .approach-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; 
+        }
+        .service-card, .approach-step, .feature-card { 
+            background: var(--dark-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .service-card { 
+            cursor: pointer; 
+        }
+        .service-card:hover, .approach-step:hover { 
+            transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 176, 255, 0.2); 
+        }
+        .service-card i, .approach-step i, .feature-card i { 
+            font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; 
+        }
+        .service-card h3, .approach-step h3, .feature-card h3 { 
+            color: var(--primary-color); font-size: 1.4rem; 
+        }
+        .testimonials-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; 
+        }
+        .testimonial-card { 
+            background: #2a2a2a; padding: 25px; border-left: 5px solid var(--primary-color); border-radius: 5px; 
+        }
+        .faq-item { 
+            background: var(--light-dark-bg); margin-bottom: 10px; border-radius: 5px; 
+        }
+        .faq-question { 
+            padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; 
+        }
+        .faq-question i { 
+            transition: transform 0.3s ease; 
+        }
+        .faq-item.active .faq-question i { 
+            transform: rotate(180deg); 
+        }
+        .faq-answer { 
+            padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; 
+        }
+        .cta-section { 
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); padding: 60px 20px; text-align: center; border-radius: 10px; margin: 0 auto; 
+        }
+        .cta-section h2 { 
+            color: white; 
+        }
+        .contact-grid { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start;
+        }
+        .contact-info p { 
+            margin-bottom: 20px; display: flex; align-items: center; font-size: 1rem; 
+        }
+        .contact-info i { 
+            color: var(--primary-color); margin-right: 15px; font-size: 1.2rem; width: 20px; text-align: center; 
+        }
+        .contact-form h3, .contact-info h3 { 
+            text-align: left; 
+        }
+        .contact-form form { 
+            display: flex; flex-direction: column; 
+        }
+        .contact-form input, .contact-form textarea { 
+            width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 2px solid #555; background: #333; color: var(--text-color); font-family: 'Poppins', sans-serif; transition: border-color 0.3s ease; 
+        }
+        .contact-form input:focus, .contact-form textarea:focus { 
+            border-color: var(--primary-color); outline: none; 
+        }
+        .footer { 
+            background: #111; color: #aaa; text-align: center; padding: 40px 0; 
+        }
+        .footer .social-links a { 
+            color: #aaa; margin: 0 15px; font-size: 1.5rem; text-decoration: none; transition: color 0.3s ease; 
+        }
+        .footer .footer-links { 
+            margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; 
+        }
+        .footer .footer-links a { 
+            color: #ccc; text-decoration: none; cursor: pointer; 
+        }
+        .modal { 
+            display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); 
+        }
+        .modal-content { 
+            background-color: #2a2a2a; margin: 5% auto; padding: 30px; border: 1px solid #888; width: 80%; max-width: 800px; border-radius: 10px; position: relative; animation: fadeIn 0.5s; 
+        }
+        @keyframes fadeIn { 
+            from {opacity: 0;} to {opacity: 1;} 
+        }
+        .close-btn { 
+            color: #aaa; position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; 
+        }
+        .modal-content h2, .modal-content h3 { 
+            color: var(--primary-color); text-align: left; 
+        }
+        .modal-content h4 { 
+            color: var(--secondary-color); margin-top: 20px; 
+        }
+        .modal-content p, .modal-content ul { 
+            text-align: left; margin-bottom: 15px;
+        }
+        .modal-content ul { 
+            list-style-position: inside; padding-left: 20px;
+        }
+        .pricing-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 20px; 
+        }
+        .pricing-card { 
+            background: var(--dark-bg); padding: 20px 15px; border-radius: 8px; text-align: center; border: 1px solid var(--secondary-color); 
+        }
+        .pricing-card h5 { 
+            color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; 
+        }
+        .pricing-card p { 
+            font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; 
+        }
+        .btn-small { 
+            padding: 8px 15px; font-size: 0.9rem; 
+        }
         @media(max-width: 768px) {
             .navbar, .about-content { flex-direction: column; }
             .nav-links { margin-top: 15px; }
@@ -96,26 +228,530 @@
 </head>
 <body>
 
-    <header class="header"><nav class="navbar container"><a href="#" class="logo"><img src="logo.png" alt="Logo"><span>FinanceWise Advisors</span></a><ul class="nav-links"><li><a href="#hero" class="active">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
-    <section id="hero" class="hero"><div class="hero-content"><h1>Grow Your Wealth with <span>Expert Guidance</span></h1><p>Your trusted partner for smart and strategic stock market investments.</p><a href="#contact" class="btn">Get a Free Consultation</a></div></section>
-    <section id="about" class="container"><div class="about-content"><div class="about-text"><h2 class="section-title" style="text-align:left;">About Finance Wise Advisors</h2><p>Finance Wise Advisors is a premier financial advisory firm based in Kishangarh, Ajmer. Founded by <strong>Ashutosh Kabra</strong>, a SEBI registered research analyst, our mission is to empower investors with the knowledge and strategies needed to navigate the complexities of the stock market. We believe in building long-term relationships based on trust, transparency, and data-driven results.</p></div></div></section>
-    <section id="services"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card modal-link" data-modal="indexOption"><i class="fas fa-chart-pie"></i><h3>Index Option</h3><p>Strategic guidance for trading in Nifty & Bank Nifty options.</p></div><div class="service-card modal-link" data-modal="stockOption"><i class="fas fa-tasks"></i><h3>Stock Option</h3><p>Expert analysis and calls for options of individual stocks.</p></div><div class="service-card modal-link" data-modal="stockFutures"><i class="fas fa-file-contract"></i><h3>Stock Futures</h3><p>Well-researched strategies for trading in the stock futures segment.</p></div><div class="service-card modal-link" data-modal="swingTrading"><i class="fas fa-wave-square"></i><h3>Swing Trading</h3><p>Short to medium-term trading ideas to capture market swings.</p></div></div></div></section>
-    <section id="our-approach"><div class="container"><h2 class="section-title">Our Approach</h2><div class="approach-grid"><div class="approach-step"><i class="fas fa-user-check"></i><h3>1. Risk Profiling</h3><p>We start by understanding your financial goals and risk tolerance.</p></div><div class="approach-step"><i class="fas fa-bullseye"></i><h3>2. Strategy Building</h3><p>Based on your profile, we create a personalized investment strategy.</p></div><div class="approach-step"><i class="fas fa-lightbulb"></i><h3>3. Recommendation</h3><p>You receive clear, actionable recommendations with defined logic.</p></div><div class="approach-step"><i class="fas fa-sync-alt"></i><h3>4. Regular Review</h3><p>We constantly monitor the portfolio and make adjustments as needed.</p></div></div></div></section>
-    <section id="why-choose-us" style="background-color: var(--dark-bg);"><div class="container"><h2 class="section-title">Why Choose Us?</h2><div class="why-choose-us-grid"><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-check-circle"></i><h3>SEBI Registered</h3><p>A compliant and trustworthy firm for your peace of mind.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-user-tie"></i><h3>Expert Guidance</h3><p>Benefit from in-depth market knowledge and expertise.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-cogs"></i><h3>Personalized Strategy</h3><p>Investment strategies tailored to your unique financial goals.</p></div><div class="feature-card" style="background:var(--light-dark-bg);"><i class="fas fa-chart-bar"></i><h3>Data-Driven Approach</h3><p>Recommendations backed by thorough research and analysis.</p></div></div></div></section>
-    <section id="testimonials" class="container"><h2 class="section-title">What Our Clients Say</h2><div class="testimonials-grid"><div class="testimonial-card"><p>"Finance Wise Advisors changed my perspective on investing. Their guidance is clear and effective. My portfolio has never looked better!"</p><h4>- Rohan S., Mumbai</h4></div><div class="testimonial-card"><p>"As a beginner, the stock market seemed intimidating. But Ashutosh Kabra explained everything patiently. Highly recommended!"</p><h4>- Priya M., Jaipur</h4></div><div class="testimonial-card"><p>"The professionalism and transparency are top-notch. I appreciate their data-driven approach, which gives me confidence in my investments."</p><h4>- Ankit G., Delhi</h4></div></div></section>
-    <section id="faq"><div class="container"><h2 class="section-title">Frequently Asked Questions</h2><div class="faq-item"><div class="faq-question">Are your services suitable for beginners? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Yes, absolutely. We guide our clients at every step, from understanding the basics to executing trades. Our recommendations are designed to be easy to understand and follow.</p></div></div><div class="faq-item"><div class="faq-question">How do I receive the recommendations? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>All recommendations are provided through our private Telegram channel and WhatsApp for instant delivery, ensuring you never miss an opportunity.</p></div></div><div class="faq-item"><div class="faq-question">What is the minimum capital required? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>We have different service plans suitable for various capital sizes. We recommend starting with a capital you are comfortable with. Please contact us for a personalized discussion.</p></div></div></div></section>
-    <section class="container"><div class="cta-section"><h2>Ready to Start Your Financial Journey?</h2><p style="color:white; margin:15px 0;">Let's work together to achieve your financial goals. Get in touch with us for a no-obligation consultation.</p><a href="#contact" class="btn" style="background:white; color:black;">Contact Us Now</a></div></section>
-    <section id="contact" class="container"><div class="contact-grid"><div class="contact-info"><h3>Contact Details</h3><p><i class="fas fa-user"></i> <strong>Contact:</strong> Ashutosh Kabra</p><p><i class="fas fa-phone"></i> <strong>Telephone:</strong> +91 919413592811</p><p><i class="fas fa-envelope"></i> <strong>Email:</strong> ashurj.maheshwari@gmail.com</p><p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801</p><p><i class="fas fa-id-card"></i> <strong>SEBI Registration:</strong> INH000015349</p></div><div class="contact-form"><h3>Send us a Message</h3><form action="#" method="POST"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="text" name="subject" placeholder="Subject" required><textarea name="message" rows="5" placeholder="Your Message" required></textarea><button type="submit" class="btn">Send Message</button></form></div></div></section>
-    
-    <footer class="footer"><div class="container"><div class="social-links"><a href="https://www.facebook.com/profile.php?id=61579016798799" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/financewise__" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@financewiseadvisors" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a><a href="https://t.me/+8uqcKmSy0ecyY2I1" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></div><div class="footer-links"><a class="modal-link" data-modal="terms">Terms & Conditions</a>|<a class="modal-link" data-modal="privacy">Privacy Policy</a>|<a class="modal-link" data-modal="refund">Refund Policy</a>|<a class="modal-link" data-modal="disclosure">Disclosure</a>|<a class="modal-link" data-modal="grievance">Grievance Redressal</a>|<a class="modal-link" data-modal="charter">Investor Charter</a></div><p class="sebi-info">SEBI Registered Research Analyst: Ashutosh Kabra (INH000015349)</p><p>&copy; 2025 Finance Wise Advisors. All Rights Reserved.</p></div></footer>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">
+                <img src="./assets/logo.jpg" alt="Logo">
+                <span>FinanceWise Advisors</span>
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#hero" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Grow Your Wealth with <span>Expert Guidance</span></h1>
+            <p>Your trusted partner for smart and strategic stock market investments.</p>
+            <a href="#contact" class="btn">Get a Free Consultation</a>
+        </div>
+    </section>
+    <section id="about" class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align:left;">About Finance Wise Advisors</h2>
+                <p>Finance Wise Advisors is a premier financial advisory firm based in Kishangarh, Ajmer. Founded by <strong>Ashutosh Kabra</strong>, a SEBI registered research analyst, our mission is to empower investors with the knowledge and strategies needed to navigate the complexities of the stock market. We believe in building long-term relationships based on trust, transparency, and data-driven results.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card modal-link" data-modal="indexOption">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Index Option</h3>
+                    <p>Strategic guidance for trading in Nifty & Bank Nifty options.</p>
+                </div>
+                <div class="service-card modal-link" data-modal="stockOption">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Stock Option</h3>
+                    <p>Expert analysis and calls for options of individual stocks.</p>
+                </div>
+                <div class="service-card modal-link" data-modal="stockFutures">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Stock Futures</h3>
+                    <p>Well-researched strategies for trading in the stock futures segment.</p>
+                </div>
+                <div class="service-card modal-link" data-modal="swingTrading">
+                    <i class="fas fa-wave-square"></i>
+                    <h3>Swing Trading</h3>
+                    <p>Short to medium-term trading ideas to capture market swings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="our-approach">
+        <div class="container">
+            <h2 class="section-title">Our Approach</h2>
+            <div class="approach-grid">
+                <div class="approach-step">
+                    <i class="fas fa-user-check"></i>
+                    <h3>1. Risk Profiling</h3>
+                    <p>We start by understanding your financial goals and risk tolerance.</p>
+                </div>
+                <div class="approach-step">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>2. Strategy Building</h3>
+                    <p>Based on your profile, we create a personalized investment strategy.</p>
+                </div>
+                <div class="approach-step">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>3. Recommen<br>dation</h3>
+                    <p>You receive clear, actionable recommenda<br>-tions with defined logic.</p>
+                </div>
+                <div class="approach-step">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>4. Regular Review</h3>
+                    <p>We constantly monitor the portfolio and make adjustments as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="why-choose-us" style="background-color: var(--dark-bg);">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="why-choose-us-grid">
+                <div class="feature-card" style="background:var(--light-dark-bg);">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>SEBI Registered</h3>
+                    <p>A compliant and trustworthy firm for your peace of mind.</p>
+                </div>
+                <div class="feature-card" style="background:var(--light-dark-bg);">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Guidance</h3>
+                    <p>Benefit from in-depth market knowledge and expertise.</p>
+                </div>
+                <div class="feature-card" style="background:var(--light-dark-bg);">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Personalized Strategy</h3>
+                    <p>Investment strategies tailored to your unique financial goals.</p>
+                </div>
+                <div class="feature-card" style="background:var(--light-dark-bg);">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data-Driven Approach</h3>
+                    <p>Recommenda<br>-tions backed by thorough research and analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Finance Wise Advisors changed my perspective on investing. Their guidance is clear and effective. My portfolio has never looked better!"</p>
+                <h4>- Rohan S., Mumbai</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"As a beginner, the stock market seemed intimidating. But Ashutosh Kabra explained everything patiently. Highly recommended!"</p>
+                <h4>- Priya M., Jaipur</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"The professionalism and transparency are top-notch. I appreciate their data-driven approach, which gives me confidence in my investments."</p>
+                <h4>- Ankit G., Delhi</h4>
+            </div>
+        </div>
+    </section>
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">Are your services suitable for beginners? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, absolutely. We guide our clients at every step, from understanding the basics to executing trades. Our recommendations are designed to be easy to understand and follow.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I receive the recommendations? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>All recommendations are provided through our private Telegram channel and WhatsApp for instant delivery, ensuring you never miss an opportunity.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is the minimum capital required? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We have different service plans suitable for various capital sizes. We recommend starting with a capital you are comfortable with. Please contact us for a personalized discussion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="cta-section">
+            <h2>Ready to Start Your Financial Journey?</h2>
+            <p style="color:white; margin:15px 0;">Let's work together to achieve your financial goals. Get in touch with us for a no-obligation consultation.</p>
+            <a href="#contact" class="btn" style="background:white; color:black;">Contact Us Now</a>
+        </div>
+    </section>
+    <section id="contact" class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p>
+                    <i class="fas fa-user"></i>
+                    <strong>Contact:</strong> Ashutosh Kabra
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i> 
+                    <strong>Telephone:</strong> +91 919413592811
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i> 
+                    <strong>Email:</strong> ashurj.maheshwari@gmail.com
+                </p>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 
+                    <strong>Address:</strong> Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801
+                </p>
+                <p>
+                    <i class="fas fa-id-card"></i> 
+                    <strong>SEBI Registration:</strong> INH000015349
+                </p>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61579016798799" target="blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/financewise_" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@financewiseadvisors" target="_blank" aria-label="Youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://t.me/+8uqcKmSy0ecyY2I1" target="_blank" aria-label="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a class="modal-link" data-modal="terms">Terms & Conditions</a>|
+                <a class="modal-link" data-modal="privacy">Privacy Policy</a>|
+                <a class="modal-link" data-modal="refund">Refund Policy</a>|
+                <a class="modal-link" data-modal="disclosure">Disclosure</a>|
+                <a class="modal-link" data-modal="grievance">Grievance Redressal</a>|
+                <a class="modal-link" data-modal="charter">Investor Charter</a>
+            </div>
+            <p class="sebi-info">SEBI Registered Research Analyst: Ashutosh Kabra (INH000015349)</p>
+            <p>&copy; 2025 Finance Wise Advisors. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <!-- All Modals Here -->
-    <div id="termsModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Terms and Conditions</h2><p>Welcome to Finance Wise Advisors. By using our services, you agree to these terms. The information is for educational purposes only. We are not liable for any losses. All content is our intellectual property.</p></div></div>
-    <div id="privacyModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Privacy Policy</h2><p>We are committed to protecting your privacy. We collect personal information only when you voluntarily provide it. This information is used solely to respond to your inquiries. We do not sell or share your data.</p></div></div>
-    <div id="refundModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Refund Policy</h2><p>All fees for our advisory services are strictly non-refundable. Since our services are knowledge-based and delivered upon payment, we cannot issue refunds. There are no cancellations or refunds under any circumstances.</p></div></div>
-    <div id="disclosureModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Disclosure & Disclaimer</h2><p><strong>Finance Wise Advisors is a proprietorship firm owned by Mr. Ashutosh Kabra, a SEBI Registered Research Analyst with Registration No. INH000015349.</strong></p><ul><li>Investment in securities market is subject to market risks. Read all related documents carefully before investing. There is no assurance or guarantee of returns.</li><li>We do not have any financial interest or beneficial ownership of 1% or more in the subject company's securities.</li><li>We do not have any other material conflict of interest at the time of publication of research reports.</li></ul></div></div>
-    <div id="grievanceModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Grievance Redressal</h2><p>You can send your complaints to our compliance officer at <strong>ashurj.maheshwari@gmail.com</strong>. If you are not satisfied, you can file a complaint with SEBI on the SCORES platform at <a href="https://scores.sebi.gov.in" target="_blank" style="color:var(--primary-color);">scores.sebi.gov.in</a>.</p></div></div>
-    <div id="charterModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Investor Charter</h2><h3>Vision & Mission</h3><p><strong>Vision:</strong> To help investors invest with knowledge and safety. <strong>Mission:</strong> To ensure every investor can invest in the right products based on their needs and goals.</p></div></div>
+    <div id="termsModal" class="modal">
+        <div class="modal-content"><span class="close-btn">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <p><p class="text">Free Trial recommendations are for demonstration purposes only; it is solely up to you to decide whether to trade or not.</p>
+        <p class="text">Kindly note that the research recommendations we provide are based on your chosen package. Our research analysts conduct thorough research to make these recommendations. However, it is ultimately up to you to decide whether or not to take positions on these recommendations or avoid them. We cannot be held responsible for any gains or losses resulting from the recommendations we have provided.</p>
+        <p class="text">Kindly note that we cannot be held responsible for any losses caused by market fluctuations, inaccuracies, delays in receiving recommendations, news, or any technical issues. It is important to remember that investing and trading in the stock market involve inherent risks that are beyond our control. Therefore, we cannot entertain any claims for losses incurred due to our recommendations.</p>
+        <p class="text">We don’t have any refund policy.</p>
+        <p class="text">Kindly note that we do not offer any guaranteed returns or commit to guaranteed profits on our recommendations. We trade and invest in the stock market, where all investment and trading capital is subject to market risk.</p>
+        <p class="text">All employees, associates, and clients are strictly prohibited from sharing our research reports or any other confidential information. Legal action will be taken against those who do so.</p>
+        <p class="text">No employee or associate may accept gifts from clients. Please transfer fees only to our official account mentioned on our website, not to any individual account.</p>
+        <p class="text">We do not handle any DEMAT or trading accounts on your behalf. Therefore, we strictly advise you not to share your credentials such as User ID, password, security question answers, or OTPs with any of our employees under any circumstances. We will not entertain any claims against such actions at any time.</p>
+        <p class="text">We understand that not everyone has the financial resources to pay for their essentials, which makes it difficult for many to pay our fees in a single lump sum. Therefore, we offer the option of paying in instalments at times convenient to you. These instalments are solely for paying the fees, not for profit sharing in any way. Please note that if you are dissatisfied with our services at any point during your subscription period, you will not be eligible for a refund of the fees paid till date, as per our refund policy.</p>
+        <p class="text">FinanceWise Advisors management has right to change in terms and conditions as per requirement without prior permission of client.</p>
+        <p class="text">You can raise your queries or disputes at ashurj.maheshwari@gmail.com</p>
+        <p class="text">Above Terms & Conditions shall be governed and construed in accordance with the Indian laws and any disputes arising under these Terms & Conditions shall be subject to the Jurisdiction of the Rajasthan only.</p>
+        <br></p></div></div>
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p> 
+                <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">1. Information Collection and Use</span>
+          <br>
+          <br>
+         We collect personally identifiable information (such as your name, phone number, and email address) when you voluntarily submit it via our website, social media, or
+other communication channels. This information is used exclusively for the following purposes:
+        </p><br>
+        <ul style="color: white;">
+            <li>To improve the quality and relevance of our services.</li>
+            <li>To provide you with tailored research recommendations and client support.</li>            
+            <li>To keep you informed about our services, offers, surveys, newsletters, or promotional activities that may be of interest to you.</li>
+        </ul>
+        <br />
+        <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">2. Data Security and Confidentiality</span><br><br>
+         We take your privacy seriously and implement reasonable administrative, technical, and physical safeguards to protect your data from unauthorized access or
+disclosure. While we strive to protect your personal information, no system can guarantee absolute security, and you acknowledge that any information you transmit
+is done at your own risk.
+        </p><br>
+        <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">3. Communication and Consent</span><br><br>
+        By submitting an inquiry through our website or engaging with us via social media or other platforms, you expressly consent to be contacted by FinanceWise Advisors via
+phone call, SMS, WhatsApp, or email-even if your number is registered under the National Do Not Call (NDNC) registry.<br>You may receive communications relating to:
+        </p><br>
+        <ul style="color: white;">
+            <li>Service updates and new offerings.</li>
+            <li>Promotional campaigns, contests, or surveys.</li>            
+            <li>Client relationship management.</li>
+
+        </ul>
+        <br />
+         <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">4. Data Sharing and Regulatory Disclosures</span><br><br>
+        We do not sell or rent your personal information to third parties. However, we may share your data without prior consent under the following circumstances:
+        </p><br>
+        <ul style="color: white;">
+            <li>If required by regulatory authorities (e.g., SEBI) or government bodies.</li>
+            <li>With affiliated service providers or partners strictly for operational purposes.</li>            
+            <li>In connection with legal compliance, auditing, or dispute resolution.</li>
+        </ul>
+        <br>
+        <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">5. Your Rights and Choices</span><br><br>
+        You have the right to:
+        </p><br>
+        <ul style="color: white;">
+            <li>Review the personal data we hold about you.</li>
+            <li>Request corrections to inaccurate information.</li>            
+            <li>Withdraw consent for marketing communications.</li>
+            <li>Request deletion of your data, subject to legal or compliance obligations.</li>
+        </ul><br>
+        <p style="color: white;">To exercise these rights, please contact us at <a href="ashurj.maheshwari@gmail.com">ashurj.maheshwari@gamil.com</a></p>
+        <br>
+        <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">6. Policy Updates</span><br><br>
+        FinanceWise Advisors reserves the right to update or modify this Privacy Policy at any time without prior notice. Any changes will be posted on this page with the effective
+date updated accordingly. We recommend reviewing this policy periodically to stay informed.
+        </p><br>
+        <p class="text">
+          <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">7. Contact Information</span><br><br>
+        For any privacy-related queries, grievances, or data access requests, please write to:<br>
+
+         FinanceWise Advisors<br>
+         SEBI Registered Research Analyst (INH000015349)<br>
+         Email: <a href="ashurj.maheshwari@gmail.com">ashurj.maheshwari@gmail.com</a><br>
+         MObile : 919413592811<br>
+         Website: <a href="https://www.financewiseadvisors.com">www.financewiseadvisors.com</a><br>
+        </p><br></p></div></div>
+    <div id="refundModal" class="modal">
+        <div class="modal-content"><span class="close-btn">&times;</span>
+            <h2>Refund Policy</h2>
+            <p> We prioritize our customers and are dedicated to delivering the highest quality services.<br><br>
+�� It’s important for our clients to understand that we cannot provide a return assurance or guarantee on our calls, which means we can issue refunds on subscriptions on pro-rata basis regardless of client’s outcomes.<br><br>
+�� In the event of early termination of our services, we will refund the unused portion of your fee on a pro-rata basis, as per SEBI’s guidelines. No breakage fee or penalty will be levied for early termination. If a client is dissatisfied for any unforeseen reason, they are welcome to reach out to us for guidance and support. We will make every effort to enhance satisfaction in such instances. However, any request from a client to cancel a service or receive a refund will be done on pro-rata basis. <br>
+<br>Before making a payment, we strongly encourage our visitors and potential clients to:<br>
+ Review all information regarding our services and the support we provide to clients.<br>
+ Familiarize themselves with our Terms and Conditions.<br>
+ Read our Privacy Policy and Refund Policy.<br>
+Understand that refunds are only possible on a pro-rata basis, and according to SEBI notifications/circulars/laws.<br><br>
+�� There is no avenue for claiming losses incurred based on the recommendations in the research report.<br><br>
+�� Visit the Investor Charter and Complaint Table at: www.financewiseadvisor.com</p><br>
+         <p class="text" style="font: bold;">Standard Note on Fee Cap Compliance (as per SEBI Guidelines):<br>
+As per SEBI’s latest circular (April 2025), the maximum fee that can be charged to an individual client (including Hindu Undivided Families) is ₹1,51,000 per financial year per family, excluding statutory charges.<br><br>
+Accordingly, we hereby inform that:<br>
+If a client subscribes to all research analyst services offered by us, and the cumulative fee for such services exceeds ₹1,51,000 (exclusive of taxes) in any financial year, the total amount charged shall be capped at ₹1,51,000 only.<br>
+Despite the cap on fees, all subscribed services shall continue to be provided to the client without any reduction in scope or quality.<br>
+This policy ensures full compliance with SEBI’s regulatory framework and reflects our commitment to maintaining transparency, integrity, and fair client practices.<br><br>
+
+If you are approached with any proposal or invoice that exceeds this limit, please bring it to our attention immediately for an early disposal of the issue.<br></p>
+       
+       <br></p></div></div>
+    <div id="disclosureModal" class="modal">
+        <div class="modal-content"><span class="close-btn">&times;</span>
+            <h2>Disclosure & Disclaimer</h2>
+            <p> <p class="text"><span style="font-weight: bolder;color: #00aaff;">MARKET RISKS WARNING</span> : “Investment in securities market are subject to market risks. Read all the related documents carefully before investing.”</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">LOSS POSSIBILITY </span> :  Market risks may result in partial or permanent loss of investments under certain market conditions.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">ILLUSTRATIVE PURPOSES</span> : “The securities mentioned are for illustration only and are not recommendations.”</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">SEBI REGISTRATION</span> :  “Registration granted by SEBI and certification from NISM do not guarantee the performance of the intermediary nor assure returns to investors.”</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">PAST PERFORMANCE</span> :  Past performance is not indicative of future results.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">RISK ASSOCIATED IN OPEN POSITIONS</span> : Our recommendations may be open; we may not provide any stop-loss or target price in securities recommendations. This will cause a huge loss on your portfolio in adverse market conditions or company events.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">SEBI SPECIFIED MECHANISM FOR FEE COLLECTION</span> : All fee payments for research services must be made through online mode and in “FinanceWise Advisors” Bank account or through the payment gateway or Centralized Fee Collection Mechanism (CeFCoM). Payments made outside this mechanism are not considered as payment for services under SEBI regulations. No grievances in this regard will be entertained by SEBI or its recognized regulatory bodies.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">NO WARRANTIES</span> :  The Research Analyst does not guarantee the accuracy, results, or reliability of content on its website, including merchantability, suitability, and non-infringement.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">NO LOSS CLAIMS</span> : “There is no avenue for claiming losses incurred based on the recommendations in the research report.”</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">OPTIONS TRADING RISK</span> : Understanding the Risks of #HeroZero and #ZeroHero Options Calls, and Options calls under the #HeroZero or #ZeroHero categories come with significant capital risk and a high likelihood of total capital loss. It’s essential to invest in Futures and Options (F&O) trading calls in accordance with your individual risk appetite.</p>
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;">EXERCISE CAUTION</span> :  We provide research analysis and specific securities recommendations but do not offer portfolio management services, personal account handling, profit sharing, or risk-profiling-based investment advisory services.</p>
+        <br><p class="text"><span style="font-weight: bold; color: #00aaff;">Report any unethical practices to our support/compliance team or SEBI.</span></p>
+        <br><p class="text"><span style="font-weight: bold; color: #00aaff;">Report any unethical practices to our compliance team: ashurj.maheshwari@gmail.com</span></p>
+        <br><p class="text"><span style="font-weight: bold; color: #00aaff;">or SEBI Toll-Free Number: 1800 22 7575 or 1800 266 7575</span></p>
+        <br>
+          <h1 style="font-size: larger;color: #00aaff;">Disclosures of all material information: FinanceWise Advisors: INH000015349 <br>Business Activity:</h1>
+
+        <p class="text"><span style="font-weight: bolder; color: #00aaff;">“FinanceWise Advisors”</span> is engaged in the business of Research Analyst activities by providing Buy/Sell/Hold calls or other ratings defined to their clients.</p>
+        <p class="text"><span style="font-weight: bolder; color: #00aaff;">“FinanceWise Advisors” </span> is registered as a Research Analyst under SEBI (Research Analyst) Regulations, 2014. SEBI Reg. No. INH000015349</p>
+        <br>
+        <h1 style="font-size: larger;color: #00aaff;"> Disciplinary History:</h1>
+
+        <br><p class="text"><span style="font-weight: bolder; color: #00aaff;"></span> There has been no instance of any Disciplinary action, penalty, etc. levied/passed by any regulation/administrative agencies against “FinanceWise Advisors: INH000015349” and its Partners and associates.</p>
+        <br>
+        <h1 style="font-size: larger;color: #00aaff;"> Terms & Conditions of issuance of Research Report issued by “FinanceWise Advisors:INH000015349”</h1>
+
+        <br><p class="text">The Research report is issued to the registered clients. The Research Report or Research recommendations are based on facts, figures, and information that are considered true, correct, and reliable. The information contained herein is from publicly available data or other sources believed to be reliable.</p>
+        <br><p class="text">We have also reviewed the research report or Research recommendations for any untrue statements of material facts or any false or misleading information.</p>
+        <br><p class="text">The report or recommendations are prepared solely for informational purposes and do not constitute an offer document or solicitation to buy or sell or hold or subscribe for securities or other financial instruments for clients.</p>
+        <br>
+        <h1 style="font-size: larger;color: #00aaff;"> RISK Disclosures:</h1>
+
+        <br><p class="text">“FinanceWise Advisors:INH000015349”, its partners, employees, officers, and its affiliates are not responsible for any loss or damage that may arise to any person for any nonchalant error in the information represented in the research report or research recommendations.</p>
+        <br><p class="text">Investors may lose his/her entire amount or Investments or portfolio under certain market conditions so acting on any advice or recommendations from research reports, Investors should understand their risk appetite or consult their financial advisers.</p>
+        <br><p class="text">The research report or Research recommendations do not take into account any specific investment objective, goal, or financial situation or any specific needs and objectives of any specific individual.</p>
+        <br><p class="text">The client obtaining the research report or Research recommendations should act according to his/her own risk appetite and financial position and should also understand the risk involved in capital markets while making investments.</p>
+        <br><p class="text">Disclosures of all material information: “FinanceWise Advisors:INH000015349”</p>
+        <br><p class="text">Disclosures with regard to ownership and material conflicts of interest:</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its research analysts or his/her relative or associate don’t have any direct or indirect financial interest in the subject company</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its research analysts, or his/her relative or associate, don’t have any other material conflict of interest at the time of publication of the research report.</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its research analysts, or his/her relative or associates don’t have actual ownership of 1% or more securities of the subject company</p>
+        <br><p class="text">Visit our social media and website for more details on risks, disclosures, disclaimers, terms and conditions, refund policies, SEBI Research Analyst registration details, Compliance officer details, etc.<br>Trade Name or Website: www.financewiseadvisors.com</p>
+        <br><h1 style="font-size: larger;color: #00aaff;"> Disclosures with regard to ownership and material conflicts of interest:</h1>
+
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have received any compensation from the subject company in the past twelve months: NO</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have managed or co-managed a public offering of securities for the subject in the past twelve months: NO</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have received any compensation for investment banking or merchant banking or brokerage services from the subject company in the past twelve months: NO</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have received any compensation for products or services other than investment banking or merchant banking or brokerage services from the subject company in the past twelve months: NO</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have received any compensation or other benefits from the subject company or third party in connection with the research report: NO</p>
+        <br><p class="text">The research analyst has not served as an officer, director, and employee of the subject company</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its research analyst has been engaged in the market-making activity for the subject company: NO</p>
+        <br><p class="text">“FinanceWise Advisors:INH000015349” or its associates have received any compensation from the subject company in the past twelve months: NO</p>
+        <br>
+
+         <h1 style="font-size: larger;color: #00aaff;">  The Use of AI Tools in Research and Advisory Services involves several key points:</h1>
+
+        <br><p class="text">Our Recommendations are based on technical and fundamental analysis with some use of AI-artificial intelligence.</p>
+        <br><p class="text">Our Responsibility for client data security, confidentiality, and compliance is upheld on the use of AI.</p>
+        <br><p class="text">AI trading risks include system vulnerabilities that can amplify errors.</p>
+        <br><p class="text">Handling sensitive data poses privacy and security risks, including potential breaches.</p>
+        <br><p class="text">Concerns include biased outputs, privacy violations, lack of transparency, data quality issues, and misleading results from poor data.</p>
+        <br>
+        <h1 style="font-size: larger;color: #00aaff;"> MODEL PORTFOLIO BY RESEARCH ANALYST:</h1>
+
+        <br><p class="text">"FinanceWise Advisors:INH000015349" will adhere to the Research Analysts’ Guidelines for recommending a ‘model portfolio’ whenever necessary.</p>
+        <br>
+        <p class="text"><span style="font-size: larger;color: #00aaff;">NOTICE</span> : Our Recommendations and services of Crypto, Forex, and any Other third-party products are outside the regulatory purview of the Board (SEBI), and no recourse or support from the Board (SEBI) shall be available to such clients for any grievance arising therefrom. Note: The potential for capital loss is significantly high with any of the products mentioned above, primarily due to the absence of a regulatory body and grievance mechanisms. Investors should consider their risk tolerance when making investments, and we cannot be held responsible for any adverse events that may occur. We are simply sharing our insights as analysts.</p>
+        <br>
+        
+         <br><h1 style="font-size: larger;color: #00aaff;"> Securities/Stocks Ratings:</h1>
+
+        <br><p class="text">Buy: Buy Securities/Stocks as per the range defined in calls; for example, Buy XYZ stocks at 100-105, which means buy XYZ stocks only within the price range of 100 to 105, not more or less than that price.</p>
+        <br><p class="text">Sell: Sell Securities/Stocks as per the range defined in calls.</p>
+        <br><p class="text">Hold: Hold Securities/Stocks till further stop-loss or target.</p>
+        <br><p class="text">Apply: Apply for a public offer like IPO, Buy-Back, OFS, etc.</p>
+        <br><p class="text">Book Profit: Means selling Securities/Stocks equivalent to profit.</p>
+        <br><p class="text">Exit: Sell all quantities of Securities/Stocks and close positions or holdings.</p>
+        <br><p class="text">ADD/REDUCE: Buy or sell a part quantity of Securities/Stocks.</p>
+        <br>
+        <br><h1 style="font-size: larger;color: #00aaff;">  Important Notice:</h1>
+        <br><p class="text">If you are dissatisfied with our services, kindly raise your initial complaint to <a href="arthsadhana.rnc@gmail.com">arthsadhana</a> or contact: +91 9031656500 or visit our social media or website for more details.</p>
+        <br><br>
+        <h1 style="font-size: larger;color: #00aaff;"> Trade Name or Website : www.fianacewiseadvisors.com</h1>
+        <br><p class="text" style="font-weight: bolder;">If the issue remains unresolved after 7 days or if you are still not satisfied with our response, you have the option to escalate your concern to SEBI through the following channels:</p>
+        <br><p style="color: white;">SEBI SCORES Link: <a href="https://scores.sebi.gov.in/" style="font-weight: bolder; color: lightskyblue;">https://scores.sebi.gov.in/</a><br><br>
+
+                            SEBI ODR Link: <a href="https://smartodr.in/" style="font-weight: bolder; color: lightskyblue;">https://smartodr.in/</a><br><br>
+
+                            SEBI Toll-Free Number: <span style="color: lightskyblue; font-weight: bolder;">1800 22 7575 or 1800 266 7575</span><br><br>
+
+                            Also write to any of the SEBI Office – Addresses Link: <a href="https://www.sebi.gov.in/contact-us.html" style="font-weight: bolder; color: lightskyblue;">https://www.sebi.gov.in/contact-us.html</a><br><br>
+
+                            SCORES iOS App: <a href="https://apps.apple.com/us/app/sebiscores/id6478849917" style="font-weight: bolder; color: lightskyblue;">https://apps.apple.com/us/app <br>/sebiscores/id6478849917</a><br><br>
+
+                            SCORES Google Play Store App: <a href="https://play.google.com/store/apps/details?id=com.sebi" style="font-weight: bolder; color: lightskyblue;">https://play.google.com/ <br>store/apps/details?id=com.sebi</a></p>
+        <br><br>
+        <h1 style="font-size: larger;color: #00aaff;"> SEBI Investor website and Saarthi App offer free tools and resources for Investor Awareness and Education:</h1>
+        <br><p style="color: white;">Visit the SEBI investor website at: <a href="https://investor.sebi.gov.in/" style="font-weight: bolder; color: lightskyblue;">https://investor.sebi.gov.in/</a><br><br>
+
+                            Download SEBI Saarthi App in Android: <a href="https://play.google.com/store/ 
+                            apps/details?id=com.sebi.invapp" style="font-weight: bolder; color: lightskyblue;">https://play.google.com/store/ <br>apps/details?id=com.sebi.invapp</a><br><br>
+
+                            Download SEBI Saarthi App in iOS: <a href="https://apps.apple.com/in/app/saa%E2%82%B9thi/id1589426387" style="font-weight: bolder; color: lightskyblue;">https://apps.apple.com/in/app <br> /saa%E2%82%B9thi/id1589426387</a><br><br>
+            <br><p class="text" style="font-weight: bolder;">Visit the Investor Charter and Complaint Table at: <a href="https://fianacewiseadvisors.com/">www.financewiseadvisors.com</a></p>
+      </div> 
+
+</p></div></div>
+    <div id="grievanceModal" class="modal">
+        <div class="modal-content"><span class="close-btn">&times;</span>
+            <h2>Grievance Redressal</h2>
+            <p>SEBI Registration Details:<br>
+Registered Name: "FinanceWise Advisors"<br><br>
+�� Trade Name or Website: <a href="https://www.financewiseadvisors.com">www.financewiseadvisors.com</a><br>
+Type of Registration: Research Analyst<br>
+SEBI RA Registration Number: INH000015349<br><br>
+�� BSE RA Enlistment Number:<br>
+SEBI RA List: <br>
+https://www.sebi.gov.in/sebiweb <br>/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14<br>
+BSE Enlisted RA: https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
+Validity: Apr 21, 2025 – Apr 20, 2030<br><br>
+�� Registered/Correspondence Office Address:<br>
+261 A, MANDIR MARG, NEW A.G. CO OPRATIVE COLONY, Blind School, Kadru, Ranchi, RANCHI,
+JHARKHAND, 834002<br><br>
+�� Details of CEO/Head Customer Support:<br>
+Name: CHANDAN KUMAR<br>
+Phone: +91 9031656500<br>
+Email: <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a><br><br>
+�� Important Notice:<br>
+If you are dissatisfied with our services, kindly raise your initial complaint
+to <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a> or contact +91 9413592811<br>
+If the issue remains unresolved after 7 days or if you are still not satisfied with our response, you
+have the option to escalate your concern to SEBI through the following channels:<br>
+SEBI SCORES Link: https://scores.sebi.gov.in/<br>
+SEBI ODR Link: https://smartodr.in/<br>
+SEBI Toll-Free Number: 1800 22 7575 or 1800 266 7575<br>
+Also write to any of the SEBI Office – Addresses Link: https://www.sebi.gov.in/contact-us.html<br>
+SCORES iOS App: https://apps.apple.com/us/app/sebiscores/id6478849917<br>
+SCORES Google Play Store App: https://play.google.com/store/apps/details?id=com.sebi<br><br>
+�� SEBI Investor website and Saarthi App offer free tools and resources for Investor Awareness
+and Education:<br>
+Visit the SEBI investor website at: https://investor.sebi.gov.in/
+</p><br>
+
+<h1 style="font-size: large;color: #00aaff;">Research Analyst</h1><br>
+        <p class="text">Download SEBI SaarThi App in Android:<br>
+https://play.google.com/store/apps/details?id=com.sebi.invapp<br>
+Download SEBI SaarThi App in iOS:<br>
+https://apps.apple.com/in/app/saa%E2%82%B9thi/id1589426387<br><br>
+�� To protect the investors from unauthorized schemes/frauds due to impersonation:<br>
+1. Ensure that the RA service fees are paid exclusively to the bank account registered under the
+name of the Research Analyst (RA) and only through the verified RA website.
+Any payments made outside of these channels will be considered as payments for
+unregistered advisory services, and the RA will not entertain any obligations or complaints in
+such cases.<br>
+2. Always request email communications related to payment Invoices and from the RA&#39;s
+registered email ID listed on the SEBI website under Research Analysts.<br>
+3. Be sure to inform Research Analysts about any suspicious accounts.<br>
+4. You can find the list of Research Analysts in India registered with SEBI and BSE here:<br>
+https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14.<br>
+https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
+5. Further, as a part of investor awareness and cautioning the public at large, the Exchange is
+publishing and updating all issued press releases on its website under the ‘Media coverage
+and Press releases issued to caution investors’ heading.<br>
+6. The link to view/refer to issued press releases on the Exchange website is given below.<br><br>
+�� The Exchange website Link: –<br>
+1.  https://www.bseindia.com/markets/MarketInfo/MediaRelease.aspx <br>
+2.  https://www.bseindia.com/attention_investors.aspx<br>
+ �� Visit the Investor Charter and Complaint Table at:<a href="https://www.fianacewiseadvisors.com">www.financewiseadvisors.com</a></p><br>
+       
+       <br></p></div></div>
+    <div id="charterModal" class="modal">
+        <div class="modal-content"><span class="close-btn">&times;</span>
+            <h2>Investor Charter</h2><h3>Vision & Mission</h3><p><strong>Vision:</strong> To help investors invest with knowledge and safety. <strong>Mission:</strong> To ensure every investor can invest in the right products based on their needs and goals.</p></div></div>
     
     <!-- Service Modals -->
     <div id="indexOptionModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2>Index Option Service</h2><p>This service focuses on providing strategic calls for Nifty and Bank Nifty options. We use a combination of technical analysis, data interpretation, and market sentiment to identify high-probability trading opportunities.</p><h4>Who is it for?</h4><p>Ideal for traders who want to capitalize on daily market movements in the most liquid indices with defined risk.</p><h4>Key Features:</h4><ul><li>1-2 high-conviction intraday calls daily.</li><li>Clear entry, stop-loss, and target levels.</li><li>Real-time updates via Telegram/WhatsApp for timely execution.</li><li>Focus on risk management to protect capital.</li></ul><h3>Pricing Plans</h3><div class="pricing-grid"><div class="pricing-card"><h5>1 Month</h5><p>₹1999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h5>2 Months</h5><p>₹2999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h5>4 Months</h5><p>₹3999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h5>6 Months</h5><p>₹5999</p><a href="#contact" class="btn btn-small">Subscribe</a></div><div class="pricing-card"><h5>1 Year</h5><p>₹8999</p><a href="#contact" class="btn btn-small">Subscribe</a></div></div></div></div>
