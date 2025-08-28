@@ -104,10 +104,13 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; 
         }
         .service-card, .approach-step, .feature-card { 
-            background: var(--dark-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            background: var(--dark-bg); padding: 30px; border-radius: 10px; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .approach-step, .feature-card{
+            text-align: center;
         }
         .service-card { 
-            cursor: pointer; 
+            cursor: pointer;
         }
         .service-card:hover, .approach-step:hover { 
             transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 176, 255, 0.2); 
@@ -217,6 +220,12 @@
         .btn-small { 
             padding: 8px 15px; font-size: 0.9rem; 
         }
+        .modal-content p, .modal-content li {
+        text-align: justify;      
+        text-justify: inter-word; 
+        line-height: 1.6;         
+        }
+
         @media(max-width: 768px) {
             .navbar, .about-content { flex-direction: column; }
             .nav-links { margin-top: 15px; }
@@ -224,6 +233,7 @@
             .contact-grid, .services-grid, .why-choose-us-grid, .approach-grid, .testimonials-grid { grid-template-columns: 1fr; }
             .modal-content { width: 95%; margin-top: 15%; }
         }
+
         @media screen and (max-width: 480px) {
         .logo span {
             font-size: 1.2rem;  
@@ -233,6 +243,7 @@
         
         .nav-links li { margin-left: 10px; }
         }
+
     </style>
 </head>
 <body>
@@ -317,7 +328,7 @@
                 </div>
                 <div class="approach-step">
                     <i class="fas fa-lightbulb"></i>
-                    <h3>3. Recommen<br>-dation</h3>
+                    <h3>3. Recommen<br>dation</h3>
                     <p>You receive clear, actionable recommenda<br>-tions with defined logic.</p>
                 </div>
                 <div class="approach-step">
@@ -498,8 +509,8 @@
           <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">1. Information Collection and Use</span>
           <br>
           <br>
-         We collect personally identifiable information (such as your name, phone number, and email address) when you voluntarily submit it via our website, social media, or
-other communication channels. This information is used exclusively for the following purposes:
+            We collect personally identifiable information (such as your name, phone number, and email address) when you voluntarily submit it via our website, social media, or
+            other communication channels. This information is used exclusively for the following purposes:
         </p><br>
         <ul style="color: white;">
             <li>To improve the quality and relevance of our services.</li>
@@ -509,14 +520,14 @@ other communication channels. This information is used exclusively for the follo
         <br />
         <p class="text">
           <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">2. Data Security and Confidentiality</span><br><br>
-         We take your privacy seriously and implement reasonable administrative, technical, and physical safeguards to protect your data from unauthorized access or
-disclosure. While we strive to protect your personal information, no system can guarantee absolute security, and you acknowledge that any information you transmit
-is done at your own risk.
+            We take your privacy seriously and implement reasonable administrative, technical, and physical safeguards to protect your data from unauthorized access or
+            disclosure. While we strive to protect your personal information, no system can guarantee absolute security, and you acknowledge that any information you transmit
+            is done at your own risk.
         </p><br>
         <p class="text">
           <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">3. Communication and Consent</span><br><br>
-        By submitting an inquiry through our website or engaging with us via social media or other platforms, you expressly consent to be contacted by FinanceWise Advisors via
-phone call, SMS, WhatsApp, or email-even if your number is registered under the National Do Not Call (NDNC) registry.<br>You may receive communications relating to:
+            By submitting an inquiry through our website or engaging with us via social media or other platforms, you expressly consent to be contacted by FinanceWise Advisors via
+            phone call, SMS, WhatsApp, or email-even if your number is registered under the National Do Not Call (NDNC) registry.<br>You may receive communications relating to:
         </p><br>
         <ul style="color: white;">
             <li>Service updates and new offerings.</li>
@@ -550,7 +561,7 @@ phone call, SMS, WhatsApp, or email-even if your number is registered under the 
         <p class="text">
           <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">6. Policy Updates</span><br><br>
         FinanceWise Advisors reserves the right to update or modify this Privacy Policy at any time without prior notice. Any changes will be posted on this page with the effective
-date updated accordingly. We recommend reviewing this policy periodically to stay informed.
+        date updated accordingly. We recommend reviewing this policy periodically to stay informed.
         </p><br>
         <p class="text">
           <span style="font-weight: bolder;font-size: x-large; font-style: italic; color: #00aaff">7. Contact Information</span><br><br>
@@ -562,30 +573,32 @@ date updated accordingly. We recommend reviewing this policy periodically to sta
          MObile : 919413592811<br>
          Website: <a href="https://www.financewiseadvisors.com">www.financewiseadvisors.com</a><br>
         </p><br></p></div></div>
-    <div id="refundModal" class="modal">
+    
+        <div id="refundModal" class="modal">
         <div class="modal-content"><span class="close-btn">&times;</span>
             <h2>Refund Policy</h2>
             <p> We prioritize our customers and are dedicated to delivering the highest quality services.<br><br>
-�� It’s important for our clients to understand that we cannot provide a return assurance or guarantee on our calls, which means we can issue refunds on subscriptions on pro-rata basis regardless of client’s outcomes.<br><br>
-�� In the event of early termination of our services, we will refund the unused portion of your fee on a pro-rata basis, as per SEBI’s guidelines. No breakage fee or penalty will be levied for early termination. If a client is dissatisfied for any unforeseen reason, they are welcome to reach out to us for guidance and support. We will make every effort to enhance satisfaction in such instances. However, any request from a client to cancel a service or receive a refund will be done on pro-rata basis. <br>
-<br>Before making a payment, we strongly encourage our visitors and potential clients to:<br>
- Review all information regarding our services and the support we provide to clients.<br>
- Familiarize themselves with our Terms and Conditions.<br>
- Read our Privacy Policy and Refund Policy.<br>
-Understand that refunds are only possible on a pro-rata basis, and according to SEBI notifications/circulars/laws.<br><br>
-�� There is no avenue for claiming losses incurred based on the recommendations in the research report.<br><br>
-�� Visit the Investor Charter and Complaint Table at: www.financewiseadvisor.com</p><br>
-         <p class="text" style="font: bold;">Standard Note on Fee Cap Compliance (as per SEBI Guidelines):<br>
-As per SEBI’s latest circular (April 2025), the maximum fee that can be charged to an individual client (including Hindu Undivided Families) is ₹1,51,000 per financial year per family, excluding statutory charges.<br><br>
-Accordingly, we hereby inform that:<br>
-If a client subscribes to all research analyst services offered by us, and the cumulative fee for such services exceeds ₹1,51,000 (exclusive of taxes) in any financial year, the total amount charged shall be capped at ₹1,51,000 only.<br>
-Despite the cap on fees, all subscribed services shall continue to be provided to the client without any reduction in scope or quality.<br>
-This policy ensures full compliance with SEBI’s regulatory framework and reflects our commitment to maintaining transparency, integrity, and fair client practices.<br><br>
+                �� It’s important for our clients to understand that we cannot provide a return assurance or guarantee on our calls, which means we can issue refunds on subscriptions on pro-rata basis regardless of client’s outcomes.<br><br>
+                �� In the event of early termination of our services, we will refund the unused portion of your fee on a pro-rata basis, as per SEBI’s guidelines. No breakage fee or penalty will be levied for early termination. If a client is dissatisfied for any unforeseen reason, they are welcome to reach out to us for guidance and support. We will make every effort to enhance satisfaction in such instances. However, any request from a client to cancel a service or receive a refund will be done on pro-rata basis. <br>
+                <br>Before making a payment, we strongly encourage our visitors and potential clients to:<br>
+                 Review all information regarding our services and the support we provide to clients.<br>
+                 Familiarize themselves with our Terms and Conditions.<br>
+                 Read our Privacy Policy and Refund Policy.<br>
+                Understand that refunds are only possible on a pro-rata basis, and according to SEBI notifications/circulars/laws.<br><br>
+                �� There is no avenue for claiming losses incurred based on the recommendations in the research report.<br><br>
+                �� Visit the Investor Charter and Complaint Table at: www.financewiseadvisor.com</p><br>
+                        <p class="text" style="font: bold;">Standard Note on Fee Cap Compliance (as per SEBI Guidelines):<br>
+                As per SEBI’s latest circular (April 2025), the maximum fee that can be charged to an individual client (including Hindu Undivided Families) is ₹1,51,000 per financial year per family, excluding statutory charges.<br><br>
+                Accordingly, we hereby inform that:<br>
+                If a client subscribes to all research analyst services offered by us, and the cumulative fee for such services exceeds ₹1,51,000 (exclusive of taxes) in any financial year, the total amount charged shall be capped at ₹1,51,000 only.<br>
+                Despite the cap on fees, all subscribed services shall continue to be provided to the client without any reduction in scope or quality.<br>
+                This policy ensures full compliance with SEBI’s regulatory framework and reflects our commitment to maintaining transparency, integrity, and fair client practices.<br><br>
 
-If you are approached with any proposal or invoice that exceeds this limit, please bring it to our attention immediately for an early disposal of the issue.<br></p>
+                If you are approached with any proposal or invoice that exceeds this limit, please bring it to our attention immediately for an early disposal of the issue.<br></p>
        
        <br></p></div></div>
-    <div id="disclosureModal" class="modal">
+    
+       <div id="disclosureModal" class="modal">
         <div class="modal-content"><span class="close-btn">&times;</span>
             <h2>Disclosure & Disclaimer</h2>
             <p> <p class="text"><span style="font-weight: bolder;color: #00aaff;">MARKET RISKS WARNING</span> : “Investment in securities market are subject to market risks. Read all the related documents carefully before investing.”</p>
@@ -668,7 +681,7 @@ If you are approached with any proposal or invoice that exceeds this limit, plea
         <br><p class="text">ADD/REDUCE: Buy or sell a part quantity of Securities/Stocks.</p>
         <br>
         <br><h1 style="font-size: larger;color: #00aaff;">  Important Notice:</h1>
-        <br><p class="text">If you are dissatisfied with our services, kindly raise your initial complaint to <a href="arthsadhana.rnc@gmail.com">arthsadhana</a> or contact: +91 9031656500 or visit our social media or website for more details.</p>
+        <br><p class="text">If you are dissatisfied with our services, kindly raise your initial complaint to <a href="ashurj.maheshwari@gmail.com">ashurj.maheshwari@gmail.com</a> or contact: +91 9413592811 or visit our social media or website for more details.</p>
         <br><br>
         <h1 style="font-size: larger;color: #00aaff;"> Trade Name or Website : www.fianacewiseadvisors.com</h1>
         <br><p class="text" style="font-weight: bolder;">If the issue remains unresolved after 7 days or if you are still not satisfied with our response, you have the option to escalate your concern to SEBI through the following channels:</p>
@@ -699,65 +712,64 @@ If you are approached with any proposal or invoice that exceeds this limit, plea
         <div class="modal-content"><span class="close-btn">&times;</span>
             <h2>Grievance Redressal</h2>
             <p>SEBI Registration Details:<br>
-Registered Name: "FinanceWise Advisors"<br><br>
-�� Trade Name or Website: <a href="https://www.financewiseadvisors.com">www.financewiseadvisors.com</a><br>
-Type of Registration: Research Analyst<br>
-SEBI RA Registration Number: INH000015349<br><br>
-�� BSE RA Enlistment Number:<br>
-SEBI RA List: <br>
-https://www.sebi.gov.in/sebiweb <br>/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14<br>
-BSE Enlisted RA: https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
-Validity: Apr 21, 2025 – Apr 20, 2030<br><br>
-�� Registered/Correspondence Office Address:<br>
-261 A, MANDIR MARG, NEW A.G. CO OPRATIVE COLONY, Blind School, Kadru, Ranchi, RANCHI,
-JHARKHAND, 834002<br><br>
-�� Details of CEO/Head Customer Support:<br>
-Name: CHANDAN KUMAR<br>
-Phone: +91 9031656500<br>
-Email: <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a><br><br>
-�� Important Notice:<br>
-If you are dissatisfied with our services, kindly raise your initial complaint
-to <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a> or contact +91 9413592811<br>
-If the issue remains unresolved after 7 days or if you are still not satisfied with our response, you
-have the option to escalate your concern to SEBI through the following channels:<br>
-SEBI SCORES Link: https://scores.sebi.gov.in/<br>
-SEBI ODR Link: https://smartodr.in/<br>
-SEBI Toll-Free Number: 1800 22 7575 or 1800 266 7575<br>
-Also write to any of the SEBI Office – Addresses Link: https://www.sebi.gov.in/contact-us.html<br>
-SCORES iOS App: https://apps.apple.com/us/app/sebiscores/id6478849917<br>
-SCORES Google Play Store App: https://play.google.com/store/apps/details?id=com.sebi<br><br>
-�� SEBI Investor website and Saarthi App offer free tools and resources for Investor Awareness
-and Education:<br>
-Visit the SEBI investor website at: https://investor.sebi.gov.in/
-</p><br>
+                Registered Name: "FinanceWise Advisors"<br><br>
+                �� Trade Name or Website: <a href="https://www.financewiseadvisors.com">www.financewiseadvisors.com</a><br>
+                Type of Registration: Research Analyst<br>
+                SEBI RA Registration Number: INH000015349<br><br>
+                �� BSE RA Enlistment Number:<br>
+                SEBI RA List: <br>
+                https://www.sebi.gov.in/sebiweb <br>/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14<br>
+                BSE Enlisted RA: https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
+                Validity: Apr 21, 2025 – Apr 20, 2030<br><br>
+                �� Registered/Correspondence Office Address:<br>
+                Kabra Sadan, Opposite Gopal Building,Kishangarh (Rural ), AJMER, RAJASTHAN,305801<br><br>
+                �� Details of CEO/Head Customer Support:<br>
+                Name: Ashutosh Kabra<br>
+                Phone: +91 9413592811<br>
+                Email: <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a><br><br>
+                �� Important Notice:<br>
+                If you are dissatisfied with our services, kindly raise your initial complaint
+                to <a href="https://ashurj.maheshwari@gmail.com"> ashurj.maheshwari@gmail.com</a> or contact +91 9413592811<br>
+                If the issue remains unresolved after 7 days or if you are still not satisfied with our response, you
+                have the option to escalate your concern to SEBI through the following channels:<br>
+                SEBI SCORES Link: https://scores.sebi.gov.in/<br>
+                SEBI ODR Link: https://smartodr.in/<br>
+                SEBI Toll-Free Number: 1800 22 7575 or 1800 266 7575<br>
+                Also write to any of the SEBI Office – Addresses Link: https://www.sebi.gov.in/contact-us.html<br>
+                SCORES iOS App: https://apps.apple.com/us/app/sebiscores/id6478849917<br>
+                SCORES Google Play Store App: https://play.google.com/store/apps/details?id=com.sebi<br><br>
+                �� SEBI Investor website and Saarthi App offer free tools and resources for Investor Awareness
+                and Education:<br>
+                Visit the SEBI investor website at: https://investor.sebi.gov.in/
+                </p><br>
 
-<h1 style="font-size: large;color: #00aaff;">Research Analyst</h1><br>
-        <p class="text">Download SEBI SaarThi App in Android:<br>
-https://play.google.com/store/apps/details?id=com.sebi.invapp<br>
-Download SEBI SaarThi App in iOS:<br>
-https://apps.apple.com/in/app/saa%E2%82%B9thi/id1589426387<br><br>
-�� To protect the investors from unauthorized schemes/frauds due to impersonation:<br>
-1. Ensure that the RA service fees are paid exclusively to the bank account registered under the
-name of the Research Analyst (RA) and only through the verified RA website.
-Any payments made outside of these channels will be considered as payments for
-unregistered advisory services, and the RA will not entertain any obligations or complaints in
-such cases.<br>
-2. Always request email communications related to payment Invoices and from the RA&#39;s
-registered email ID listed on the SEBI website under Research Analysts.<br>
-3. Be sure to inform Research Analysts about any suspicious accounts.<br>
-4. You can find the list of Research Analysts in India registered with SEBI and BSE here:<br>
-https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14.<br>
-https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
-5. Further, as a part of investor awareness and cautioning the public at large, the Exchange is
-publishing and updating all issued press releases on its website under the ‘Media coverage
-and Press releases issued to caution investors’ heading.<br>
-6. The link to view/refer to issued press releases on the Exchange website is given below.<br><br>
-�� The Exchange website Link: –<br>
-1.  https://www.bseindia.com/markets/MarketInfo/MediaRelease.aspx <br>
-2.  https://www.bseindia.com/attention_investors.aspx<br>
- �� Visit the Investor Charter and Complaint Table at:<a href="https://www.fianacewiseadvisors.com">www.financewiseadvisors.com</a></p><br>
-       
-       <br></p></div></div>
+                <h1 style="font-size: large;color: #00aaff;">Research Analyst</h1><br>
+                        <p class="text">Download SEBI SaarThi App in Android:<br>
+                https://play.google.com/store/apps/details?id=com.sebi.invapp<br>
+                Download SEBI SaarThi App in iOS:<br>
+                https://apps.apple.com/in/app/saa%E2%82%B9thi/id1589426387<br><br>
+                �� To protect the investors from unauthorized schemes/frauds due to impersonation:<br>
+                1. Ensure that the RA service fees are paid exclusively to the bank account registered under the
+                name of the Research Analyst (RA) and only through the verified RA website.
+                Any payments made outside of these channels will be considered as payments for
+                unregistered advisory services, and the RA will not entertain any obligations or complaints in
+                such cases.<br>
+                2. Always request email communications related to payment Invoices and from the RA&#39;s
+                registered email ID listed on the SEBI website under Research Analysts.<br>
+                3. Be sure to inform Research Analysts about any suspicious accounts.<br>
+                4. You can find the list of Research Analysts in India registered with SEBI and BSE here:<br>
+                https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&amp;intmId=14.<br>
+                https://www.bseindia.com/IARA/RegisteredRA.aspx<br>
+                5. Further, as a part of investor awareness and cautioning the public at large, the Exchange is
+                publishing and updating all issued press releases on its website under the ‘Media coverage
+                and Press releases issued to caution investors’ heading.<br>
+                6. The link to view/refer to issued press releases on the Exchange website is given below.<br><br>
+                �� The Exchange website Link: –<br>
+                1.  https://www.bseindia.com/markets/MarketInfo/MediaRelease.aspx <br>
+                2.  https://www.bseindia.com/attention_investors.aspx<br>
+                �� Visit the Investor Charter and Complaint Table at:<a href="https://www.fianacewiseadvisors.com">www.financewiseadvisors.com</a></p><br>
+                    
+                    <br></p></div></div>
     <div id="charterModal" class="modal">
         <div class="modal-content"><span class="close-btn">&times;</span>
             <h2>Investor Charter</h2><h3>Vision & Mission</h3><p><strong>Vision:</strong> To help investors invest with knowledge and safety. <strong>Mission:</strong> To ensure every investor can invest in the right products based on their needs and goals.</p></div></div>
