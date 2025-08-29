@@ -41,13 +41,15 @@
             opacity: 1; transform: translateY(0); 
         }
         header {
-            background-color: #444;
+            background-color: black;
             padding: 1rem 2rem;
             display: flex;
             position: relative;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(to right, #0056b3, #4caf50);
+            border-image-slice: 1;
         }
         .logo {
             display: flex;
@@ -75,7 +77,7 @@
             color: var(--text-color); text-decoration: none; font-weight: 400; position: relative; transition: color 0.3s ease; 
         }
         .nav-links a::after { 
-            content: ''; position: absolute; width: 0; height: 2px; background: var(--primary-color); left: 0; bottom: -5px; transition: width 0.3s ease; 
+            content: ''; position: absolute; width: 0; height: 2px; background: var(--secondary-color); left: 0; bottom: -5px; transition: width 0.3s ease; 
         }
         .nav-links a:hover, .nav-links a.active { 
             color: var(--primary-color); 
@@ -314,7 +316,7 @@
     <header>
         <div class="logo">
             <img src="./assets/logo.svg" alt="Finance Wise Advisors Logo">
-            <h1>Finance Wise Advisors</h1>
+            <h1 style="color: #4caf50;"><span style="color: #00aaff;">Finance </span>Wise Advisors</h1>
         </div>
         <!-- Hamburger Button -->
             <button class="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
@@ -375,6 +377,9 @@
             <p>We believe in building long-term relationships based on three core pillars: <strong>Trust, Transparency, and data-driven Results.</strong> Our client-centric approach ensures that your financial well-being is always our top priority. We are committed to demystifying the financial markets for you, one successful trade at a time.</p>
 
             <h3 style="color: var(--secondary-color); margin-top: 20px;">Meet Our Founder</h3>
+            <div class="founder-img" style="display: flex; justify-content: center; padding: 20px 0px;">
+            <img src="./assets/photo.jpg" alt="Founder" style="width: 200px;">
+            </div>
             <p>The firm is founded and led by <strong>Mr. Ashutosh Kabra</strong>, a visionary financial expert with a passion for helping others achieve their financial goals. As a SEBI Registered Research Analyst, he brings a disciplined, ethical, and analytical approach to all our recommendations.</p>
             
             <div style="background-color: var(--light-dark-bg); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid var(--primary-color);">
@@ -523,23 +528,23 @@
                 <h3>Contact Details</h3>
                 <p>
                     <i class="fas fa-user"></i>
-                    <strong>Contact:</strong> Ashutosh Kabra
+                    <strong>Contact:</strong>&nbsp;Ashutosh Kabra
                 </p>
                 <p>
                     <i class="fas fa-phone"></i> 
-                    <strong>Telephone:</strong> +91 919413592811
+                    <strong>Telephone:</strong>&nbsp;+91 919413592811
                 </p>
                 <p>
                     <i class="fas fa-envelope"></i> 
-                    <strong>Email:</strong> ashurj.maheshwari@gmail.com
+                    <strong>Email:</strong>&nbsp;ashurj.maheshwari@gmail.com
                 </p>
                 <p>
                     <i class="fas fa-map-marker-alt"></i> 
-                    <strong>Address:</strong>Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801
+                    <strong>Address:</strong><p>&nbsp;Kabra Sadan, Opp. Gopal Building, Kishangarh (Rural), AJMER, RAJASTHAN, 305801</p>
                 </p>
                 <p>
                     <i class="fas fa-id-card"></i> 
-                    <strong>SEBI Registration:</strong> INH000015349
+                    <strong>SEBI Registration:</strong>&nbsp;INH000015349
                 </p>
             </div>
             <div class="contact-form">
